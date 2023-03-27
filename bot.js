@@ -22,6 +22,10 @@ function onReady(c) {
 client.on(Events.MessageCreate, onMessage);
 
 function onMessage(msg){
+  if(message.author.bot) {
+    return;
+  }
+
   if(msg.content.includes('!ask')){
     const answers = ["No", "Maybe", "Yes", "Definetly", "Probably", "Definetly not", "Probably not"]
     let answer = answers[Math.floor(Math.random() * answers.length)]
